@@ -1,11 +1,14 @@
 radio.onReceivedNumber(function (receivedNumber) {
-    if (receivedNumber >= 50 && receivedNumber <= 59) {
-        mensagem = receivedNumber % 10
-        basic.showNumber(mensagem)
+    if (receivedNumber == 50) {
+        pins.digitalWritePin(DigitalPin.P0, 0)
+        basic.showNumber(0)
+    } else {
+        if (receivedNumber == 51) {
+            pins.digitalWritePin(DigitalPin.P0, 1)
+            basic.showNumber(1)
+        }
     }
 })
-let mensagem = 0
 let canal = 100
-let bairro = 5
 radio.setGroup(canal)
-basic.showString("" + (bairro))
+basic.showNumber(5)
